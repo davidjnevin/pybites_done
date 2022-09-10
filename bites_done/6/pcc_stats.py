@@ -39,9 +39,9 @@ def gen_files(tempfile=tempfile):
     with open(tempfile) as tempfile:
         content = tempfile.read().splitlines()
 
-        for line in content:
-            if not line.endswith("False"):
-                print(line.lower().split(",")[0])
+        # for line in content:
+        # if not line.endswith("False"):
+        # print(line.lower().split(",")[0])
 
         return (
             line.lower().split(",")[0] for line in content if not line.endswith("False")
@@ -64,8 +64,32 @@ def diehard_pybites(files=None):
 
     users = Counter()
     popular_challenges = Counter()
+    filtered_files = []
 
-    # your code
+    for line in files:
+        ignore_me = False
+        for ignore in IGNORE:
+            if ignore in line:
+                ignore_me = True
+                break
+
+        if not ignore_me:
+            filtered_files.append(line)
+
+    user_list = []
+    challenge_list = []
+    for line in filtered_files:
+        challenge_temp, user_temp = line.split("/")
+        user_list.append(user_temp)
+        challenge_list.append(challenge_temp)
+
+    # update counters
+    users.update(user_list)
+    popular_challenges.update(challenge_list)
+
+    return Stats(
+        user=users.most_common(1)[0][0], challenge=popular_challenges.most_common(1)[0]
+    )
 
 
-print(gen_files())
+print(diehard_pybites())

@@ -7,6 +7,7 @@ authors = ["David J Nevin <66497218+davidjnevin@users.noreply.github.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 eatlocal = "^0.8.3"
+chromedriver = "^2.24.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
