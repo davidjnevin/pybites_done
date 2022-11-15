@@ -1,0 +1,16 @@
+<p>In this Bite you will use the Pydantic <code>FoodEntry</code> model (which contains the <code>Food</code> and <code>User</code> models as well).</p>
+<p>You will create the CRUD (create-read-update-delete) for this model repeating what you've learned <a href="../../../../../bites/paths/fastapi" target="_blank" rel="noopener">in FastAPI Bites 3, 4 and 5</a>.</p>
+<p>Here are the endpoints you need to implement with their inputs and responses:</p>
+<p>- <code>create_food_entry()</code> [POST] -&gt; receives a <code>FoodEntry</code>, adds it to <code>food_log</code> and returns it.</p>
+<p>- <code>get_foods_for_user()</code> [GET] -&gt; receives a <code>user_id</code>, filters <code>food_log</code> and returns the foods logged for that user (<code>List[FoodEntry]</code>).</p>
+<p>- <code>update_food_entry()</code> [PUT] -&gt; receives an <code>entry_id</code> and new <code>FoodEntry</code>, updates the corresponding entry and returns the new <code>FoodEntry</code>, raises an <code>HTTPException</code> if the entry is not found.</p>
+<p>- <code>delete_food_entry()</code> [DELETE] -&gt; receives an <code>entry_id</code> and deletes it from <code>food_log</code>, raises an <code>HTTPException</code> if the entry is not found.</p>
+<p>We'll hide the previous <code>Food</code> CRUD in the template for now to force the deliberate practice!</p>
+<p>Because the platform supports single modules only for exercises, we embedded all three Pydantic models so you might need to scroll down a bit.</p>
+<p>Again, we use an in-memory dictionary (<code>food_log: Dict[int, Food]</code>) to focus on the FastAPI / Pydantic (typing) part.</p>
+<p>In the SQLModel learning path we'll cover databases and ORMs.</p>
+<p>At the end of this Bite you'll have a simple API to track foods. Super exciting!</p>
+<p>But it's not very robust yet, so in the next Bite we'll add exception handling.</p>
+<p>Then we take a detour to some web development, having you show a user's food log in an HTML template.</p>
+<p>In the final Bite we'll lock down the API so only logged-in users can track their own foods.</p>
+<p>&nbsp;</p>
