@@ -1,0 +1,14 @@
+<p>In this Bite we'll take the API we built in the last exercise and add some more exception handling to it.</p>
+<p>We wrote a bunch of test scenarios that should return <code>4xx</code> status codes (The <code>400</code> range is reseved for scenarios in which <em>the server cannot or will not process the request due to something that is perceived to be a client error</em>) and in this Bite you'll update the API to have those tests pass.</p>
+<p>For simplicity&rsquo;s sake:</p>
+<p>- We only have you add error checking to the create (POST) food entry action / endpoint. The other endpoints are hidden in this Bite.</p>
+<p>- We only have you use FastAPI's <code>HTTPException</code> with status code <code>400</code>.</p>
+<p>We already handled the <em>food entry not found</em>&nbsp;scenario when updating / deleting in previous Bites using status code <code>404</code>.</p>
+<p>Note that FastAPI also handles using the wrong HTTP verb / method (<code>405</code>) and incomplete (Pydantic) payload issues (<code>422</code>) for you, nice!</p>
+<p>Here are the two use cases we want you to implement:</p>
+<p>1. If you call POST with an existing <code>entry.id</code> it effectively overwrites the entry in the <code>food_log</code> dictionary.</p>
+<p>In this case, return a <code>400</code> response warning the user they should use a PUT (update) request instead with this message: <em>Food entry already logged, use an update request</em></p>
+<p>2. For this exercise we added a <code>max_daily_calories</code> attribute to the <code>User</code> model.</p>
+<p>If you try to add foods beyond this limit (aka "overeat") the API doesn't let you. Return a <code>400</code> with this message: <em>Cannot add more food than daily caloric allowance = {<code>user.max_daily_calories</code>} kcal / day</em>.&nbsp;For this scenario you can assume all foods are added / evaluated the <em>same</em> day to not overcomplicate things.</p>
+<p>Maybe this second scenario should not be the API's responsability, but the point is that you as the developer can impose limits to your API. Another well known and real world scenario of this is <em>rate limiting</em> to keep your API from being used incorrectly or unrealisticaly.</p>
+<p>Good luck and in the next Bite we'll render some logged foods in an HTML template.</p>
