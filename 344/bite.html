@@ -1,0 +1,30 @@
+<p>You use FastAPI primarily to build APIs, but it can also be used as a web framework (although we think Django is a better option for this).</p>
+<p>You can install Jinja2 and return a template response <a href="https://fastapi.tiangolo.com/advanced/templates/" target="_blank" rel="noopener">as shown here</a>.</p>
+<p>However on our platform we work with single test and exercise files so in this Bite you will return an <code>HTMLResponse</code> with embedded HTML (<a href="https://fastapi.tiangolo.com/advanced/custom-response/" target="_blank" rel="noopener">docs</a>). The effect will be the same though: the food log of a user in a nice html table!</p>
+<table style="border-collapse: collapse; width: 100%; height: 64px;" border="1">
+<tbody>
+<tr style="height: 22px;">
+<td style="width: 24.0412%; height: 22px;">Food</td>
+<td style="width: 24.0412%; height: 22px;">Added</td>
+<td style="width: 24.0412%; height: 22px;">Servings</td>
+<td style="width: 24.0412%; height: 22px;">Calories (kcal)</td>
+</tr>
+<tr style="height: 20px;">
+<td style="width: 24.0412%; height: 20px;">egg</td>
+<td style="width: 24.0412%; height: 20px;">2022-03-13 11:02:37.500968</td>
+<td style="width: 24.0412%; height: 20px;">1.5 x piece&nbsp;</td>
+<td style="width: 24.0412%; height: 20px;">117.0</td>
+</tr>
+<tr style="height: 22px;">
+<td style="width: 24.0412%; height: 22px;">oatmeal</td>
+<td style="width: 24.0412%; height: 22px;">2022-03-13 11:02:37.500968</td>
+<td style="width: 24.0412%; height: 22px;">2.0 x 100 grams</td>
+<td style="width: 24.0412%; height: 22px;">672.0</td>
+</tr>
+</tbody>
+</table>
+<p><br />We provided the <code>show_foods_for_user</code> endpoint stub, add the logic to build up the HTML for the response. For your convenience we already added some template constants you can use: <code>HTML_TEMPLATE</code> and <code>TABLE_ROW</code>.</p>
+<p>Here is what the final HTML response would look like as per the tests:</p>
+<pre>&lt;html lang="en"&gt;<br />&lt;head&gt;<br />  &lt;meta charset="utf-8"&gt;<br />  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;<br />  &lt;title&gt;Food log for Julian&lt;/title&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />  &nbsp; &lt;table&gt;<br />  &nbsp; &nbsp; &nbsp; &lt;thead&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Food&lt;/th&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Added&lt;/th&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Servings&lt;/th&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;th&gt;Calories (kcal)&lt;/th&gt;<br />  &nbsp; &nbsp; &nbsp; &lt;/thead&gt;<br />  &nbsp; &nbsp; &nbsp; &lt;tbody&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;egg&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;2022-03-13 11:02:37.500968&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;1.5 x piece&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;117.0&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;tr&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;oatmeal&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;2022-03-13 11:02:37.500968&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;2.0 x 100 grams&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;td&gt;672.0&lt;/td&gt;<br />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/tr&gt;<br />  &nbsp; &nbsp; &nbsp; &lt;/tbody&gt;<br />  &nbsp; &lt;/table&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</pre>
+<p>Good luck and in the next and final FastAPI Bite we will add authentication to the API.</p>
+<p>&nbsp;</p>
